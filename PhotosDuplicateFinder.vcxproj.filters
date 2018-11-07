@@ -24,7 +24,7 @@
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DuplicateFinder.h">
+    <ClInclude Include="FilesRegistrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DuplicateFinder.cpp">
+    <ClCompile Include="FilesRegistrator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "DuplicateFinder.h"
+#include "FilesRegistrator.h"
 
 #include <iterator>
 #include <filesystem>
@@ -13,7 +13,7 @@
 using namespace std;
 namespace fs = std::experimental::filesystem;
 
-uint32_t DuplicateFinder::CalcCRC32(std::string& file) {
+uint32_t FilesRegistrator::CalcCRC32(std::string& file) {
 	
 	fstream f;
 
@@ -38,15 +38,15 @@ uint32_t DuplicateFinder::CalcCRC32(std::string& file) {
 	return crc;
 }
 
-DuplicateFinder::DuplicateFinder(const char* trans_bat) : m_trans_bat(trans_bat) {
+FilesRegistrator::FilesRegistrator(const char* trans_bat) : m_trans_bat(trans_bat) {
 	
 }
 
-void DuplicateFinder::AddDirectory(const char* dir) {
+void FilesRegistrator::AddDirectory(const char* dir) {
 	m_dirs.emplace_back(dir);
 }
 
-bool DuplicateFinder::StartFind() {
+bool FilesRegistrator::StartFind() {
 	
 	for (const auto& p : m_dirs) {
 
@@ -77,7 +77,7 @@ bool DuplicateFinder::StartFind() {
 	return true;
 }
 
-void DuplicateFinder::Print() {
+void FilesRegistrator::Print() {
 
 	fstream f;
 

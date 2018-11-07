@@ -4,7 +4,7 @@
 #include <map>
 #include <stdint.h>
 
-class DuplicateFinder {
+class FilesRegistrator {
 	
 	struct FileKey {
 		std::string m_filename;
@@ -25,7 +25,7 @@ class DuplicateFinder {
 
 public:
 
-	DuplicateFinder(const char*);
+	FilesRegistrator(const char*);
 
 	void AddDirectory(const char*);
 	bool StartFind();
