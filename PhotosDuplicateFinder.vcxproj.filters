@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\ThreadPool">
+      <UniqueIdentifier>{e885d7ab-bcca-475e-b47b-1ebc78dc3a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ThreadPool">
+      <UniqueIdentifier>{3933f787-a1ea-4c50-8933-01cb2870796d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Task">
+      <UniqueIdentifier>{0f81a016-bc0b-4ac8-9e5a-aa58537caa22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Task">
+      <UniqueIdentifier>{344e075c-4737-43a4-a7a2-1802cf456be1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TaskInterface">
+      <UniqueIdentifier>{4506f497-87f3-464a-8690-9f4fa23e1af0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -27,6 +42,33 @@
     <ClInclude Include="FilesRegistrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool\ThreadPool.h">
+      <Filter>Header Files\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool\ThreadPoolIo.h">
+      <Filter>Header Files\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool\ThreadPoolTimer.h">
+      <Filter>Header Files\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool\ThreadPoolWork.h">
+      <Filter>Header Files\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="IRegistrator.h">
+      <Filter>Header Files\TaskInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistratorTask.h">
+      <Filter>Header Files\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryTask.h">
+      <Filter>Header Files\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="IWork.h">
+      <Filter>Header Files\TaskInterface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PhotosDuplicateFinder.cpp">
@@ -37,6 +79,15 @@
     </ClCompile>
     <ClCompile Include="FilesRegistrator.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool\ThreadPool.cpp">
+      <Filter>Source Files\ThreadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryTask.cpp">
+      <Filter>Source Files\Task</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -105,16 +105,15 @@ namespace ThreadPool {
 	template<typename T>
 	class SequentialTasksEx : public WorkItem {
 
-		Concurrency::concurrent_queue<T> m_queue_task;
-		F_USER_CALLCBACK m_func;
+		Concurrency::concurrent_queue<std::shared_ptr<T>> m_queue_task;
 		unsigned long m_queue_processing;
 
 		void EndWork() {
 
-			T data;
+			std::shared_ptr<T> data;
 
 			if (m_queue_task.try_pop(data)) {
-				data.Process();
+				(*data)();
 			}
 
 			if (m_queue_task.empty() == true)
@@ -128,7 +127,7 @@ namespace ThreadPool {
 		SequentialTasksEx(ThreadPool& tp = GetMainThreadPool()) : WorkItem(this, tp), m_queue_processing(0) {
 		}
 
-		void StartTask(const T& data) {
+		void StartTask(std::shared_ptr<T>& data) {
 
 			m_queue_task.push(data);
 

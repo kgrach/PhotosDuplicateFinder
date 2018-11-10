@@ -5,7 +5,7 @@
 #include <string>
 
 
-class DirectoryTask : public IWork {
+class DirectoryTask {
 
 	std::string m_dir;
 	
@@ -15,5 +15,5 @@ public:
 
 	}
 
-	virtual void Process(void) override final;
+	void operator ()(void);
 };

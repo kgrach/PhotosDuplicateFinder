@@ -1,23 +1,23 @@
 #pragma once
 
-#include <concurrent_queue.h>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "ThreadPoolWork.h"
+#include "DirectoryTask.h"
 
 class FileManager {
 
-
-	concurrency::concurrent_queue<std::string>	m_files;
-
-	ThreadPool::SequentialTasks<ProcessDirTask> m_ProsessDirTask;
+	ThreadPool::SequentialTasksEx<DirectoryTask> m_ProsessDirTask;
 
 public:
 
-	void AddFile(std::string&);
+	FileManager();
+
+	//void AddFile(std::string&);
 
 	bool AddDirectory(const char*);
-	bool Start()
+	bool Start();
 	bool Stop();
 };

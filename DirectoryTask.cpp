@@ -8,7 +8,7 @@
 using namespace std;
 namespace fs = std::experimental::filesystem;
 
-void DirectoryTask::Process(void) {
+void DirectoryTask::operator()(void) {
 
 	time_t t = time(nullptr);
 	cout << "Check entry dir : " << m_dir.c_str() << ", started at " << std::asctime(std::localtime(&t)) << endl;

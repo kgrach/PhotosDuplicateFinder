@@ -23,8 +23,8 @@ namespace ThreadPool {
 			SYSTEM_INFO sysinfo;
 			GetSystemInfo(&sysinfo);
 
-			SetThreadpoolThreadMaximum(m_tp, 2 * sysinfo.dwNumberOfProcessors);
-			SetThreadpoolThreadMinimum(m_tp, sysinfo.dwNumberOfProcessors);
+			SetThreadpoolThreadMaximum(m_tp, sysinfo.dwNumberOfProcessors);
+			SetThreadpoolThreadMinimum(m_tp, sysinfo.dwNumberOfProcessors / 2);
 
 			m_is_starting = true;
 		}
