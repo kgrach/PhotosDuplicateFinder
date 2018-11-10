@@ -1,7 +1,5 @@
 #pragma once
 
-#include "IWork.h"
-
 #include <string>
 
 
