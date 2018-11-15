@@ -24,7 +24,9 @@ void DirectoryTask::operator()(void) {
 
 			if (s == ".jpg" || s == ".cr2" || s == ".mp4") {
 				
-				string m_filename = m_file.filename().string();
+				auto pFileName = make_shared<string>(m_file.string());
+
+				m_fNextConveyorStage(pFileName);
 
 			}
 		}

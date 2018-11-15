@@ -57,17 +57,14 @@
     <ClInclude Include="ThreadPool\ThreadPoolWork.h">
       <Filter>Header Files\ThreadPool</Filter>
     </ClInclude>
-    <ClInclude Include="IRegistrator.h">
-      <Filter>Header Files\TaskInterface</Filter>
-    </ClInclude>
     <ClInclude Include="RegistratorTask.h">
       <Filter>Header Files\Task</Filter>
     </ClInclude>
     <ClInclude Include="DirectoryTask.h">
       <Filter>Header Files\Task</Filter>
     </ClInclude>
-    <ClInclude Include="IWork.h">
-      <Filter>Header Files\TaskInterface</Filter>
+    <ClInclude Include="FileTask.h">
+      <Filter>Header Files\Task</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +84,9 @@
       <Filter>Source Files\ThreadPool</Filter>
     </ClCompile>
     <ClCompile Include="DirectoryTask.cpp">
+      <Filter>Source Files\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="FileTask.cpp">
       <Filter>Source Files\Task</Filter>
     </ClCompile>
   </ItemGroup>

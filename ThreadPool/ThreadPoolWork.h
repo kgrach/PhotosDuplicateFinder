@@ -135,5 +135,29 @@ namespace ThreadPool {
 				StartWork();
 		}
 	};
+	template<typename T>
+	class ParallelTasksEx : public WorkItem {
 
+		Concurrency::concurrent_queue<std::shared_ptr<T>> m_queue_processing;
+
+		void EndWork() {
+
+			std::shared_ptr<T> data;
+
+			if (m_queue_processing.try_pop(data)) {
+				(*data)();
+			}
+		}
+
+	public:
+
+		ParallelTasksEx(ThreadPool& tp = GetMainThreadPool()) : WorkItem(this, tp){
+		}
+
+		void StartTask(std::shared_ptr<T>& data) {
+
+			m_queue_processing.push(data);
+			StartWork();
+		}
+	};
 };

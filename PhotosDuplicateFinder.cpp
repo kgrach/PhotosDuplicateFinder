@@ -22,13 +22,17 @@ int main()
 	//finder.AddDirectory("D:\\Work\\PhotosDuplicateFinder\\Case2");
 	//finder.AddDirectory("D:\\Work\\PhotosDuplicateFinder\\Case3");
 
-	mngr.AddDirectory("F:\\CanonPhotoLoad");
-	mngr.AddDirectory("F:\\fleshka");
-	mngr.AddDirectory("F:\\photos");
-	mngr.AddDirectory("F:\\photos2");
+	mngr.AddDirectory("G:\\CanonPhotoLoad");
+	mngr.AddDirectory("G:\\fleshka");
+	mngr.AddDirectory("G:\\photos");
+	mngr.AddDirectory("G:\\photos2");
 
 	//mngr.StartFind();
 	//finder.Print();
+
+	while (1) {
+		Sleep(0);
+	}
 
     return 0;
 }

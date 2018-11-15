@@ -7,14 +7,14 @@ namespace ThreadPool {
 
 	class IOItem {
 
+
 		static void CALLBACK callback(PTP_CALLBACK_INSTANCE Instance, PVOID Context, PVOID Overlapped, ULONG IoResult, ULONG_PTR NumberOfBytesTransferred, PTP_IO Io) {
 			IOItem *item = static_cast<IOItem*>(Context);
 			item->IoCompletion(Overlapped, IoResult, NumberOfBytesTransferred);
 		}
 
 	protected:
-
-		IOItem(HANDLE h, void* context, PTP_CALLBACK_ENVIRON &env) {
+		IOItem(HANDLE h, void* context, PTP_CALLBACK_ENVIRON env) {
 			m_item = CreateThreadpoolIo(h, callback, context, env);
 		}
 
@@ -30,8 +30,10 @@ namespace ThreadPool {
 	};
 
 
-	template <typename F_USER_PENDING, typename F_USER_PENDING_HANDLER = std::function<void(const PVOID, const ULONG, const ULONG_PTR)>>
+	template <typename F_USER_PENDING>
 	class ThreadPoolIO : public IOItem {
+
+		using F_USER_PENDING_HANDLER = std::function<void(const PVOID, const ULONG, const ULONG_PTR)>;
 
 		F_USER_PENDING				m_IoPendingFunc;
 		F_USER_PENDING_HANDLER		m_IoPendingHandlerFunc;
@@ -47,12 +49,15 @@ namespace ThreadPool {
 			m_IoPendingHandlerFunc = IoPendingHandlerFunc;
 		}
 
-		virtual void IoPending() {
+		void IoPending() {
 			StartThreadpoolIo(m_item);
 
-			// функция, внутри объекта m_IoPendingFunc, сама проверяет было ли иницированно асинхронное событие ввода/вывода, если да возвращает TRUE, если нет FALSE
-			if (m_IoPendingFunc() == false) {
+			DWORD err = ERROR_SUCCESS;
+			bool ret = m_IoPendingFunc();
+
+			if (ret == true || (ret == false && (err = GetLastError()) != ERROR_IO_PENDING)) {
 				CancelThreadpoolIo(m_item);
+				m_IoPendingHandlerFunc(nullptr, err, 0);
 			}
 		};
 	};

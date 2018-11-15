@@ -42,14 +42,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -151,8 +151,7 @@
     <ClInclude Include="DirectoryTask.h" />
     <ClInclude Include="FilesRegistrator.h" />
     <ClInclude Include="FileManager.h" />
-    <ClInclude Include="IRegistrator.h" />
-    <ClInclude Include="IWork.h" />
+    <ClInclude Include="FileTask.h" />
     <ClInclude Include="RegistratorTask.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ThreadPool\ThreadPool.h" />
@@ -165,6 +164,7 @@
     <ClCompile Include="DirectoryTask.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FilesRegistrator.cpp" />
+    <ClCompile Include="FileTask.cpp" />
     <ClCompile Include="PhotosDuplicateFinder.cpp" />
     <ClCompile Include="ThreadPool\ThreadPool.cpp" />
     <ClCompile Include="Utils.cpp" />

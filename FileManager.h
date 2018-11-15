@@ -1,23 +1,24 @@
 #pragma once
 
 #include <string>
-#include <vector>
-#include <memory>
+#include <fstream>
 
 #include "ThreadPoolWork.h"
 #include "DirectoryTask.h"
+#include "FileTask.h"
 
 class FileManager {
 
-	ThreadPool::SequentialTasksEx<DirectoryTask> m_ProsessDirTask;
+
+	std::fstream f;
+	ThreadPool::SequentialTasksEx<DirectoryTask>	m_ProsessDirTask;
+	ThreadPool::ParallelTasksEx<FileTask>			m_ProsessFileTask;
+
+	void RegisterNewFile(std::shared_ptr<std::string>& fileName);
 
 public:
 
 	FileManager();
 
-	//void AddFile(std::string&);
-
 	bool AddDirectory(const char*);
-	bool Start();
-	bool Stop();
 };
